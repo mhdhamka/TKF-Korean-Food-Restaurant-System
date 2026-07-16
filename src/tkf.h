@@ -1,57 +1,136 @@
 #ifndef TKF_H
 #define TKF_H
 
-#define MAX_ORDER 5
-#define MENU_SIZE 5
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAX_MENU 50
+#define MAX_CART 20
+#define MAX_CUSTOMER 100
+
+
+/* ============================
+        MENU STRUCTURE
+   ============================ */
 
 typedef struct
 {
+    int id;
     char name[50];
+    char category[30];
     float regularPrice;
     float largePrice;
+    int quantitySold;
 
 } Menu;
 
 
+/* ============================
+        CART STRUCTURE
+   ============================ */
+
 typedef struct
 {
-    int receiptNo;
+    int menuID;
+    char foodName[50];
+    char size[10];
+    int quantity;
+    float price;
+    float totalPrice;
 
+} CartItem;
+
+
+/* ============================
+        CUSTOMER STRUCTURE
+   ============================ */
+
+typedef struct
+{
+    char receiptNo[20];
     char memberStatus[20];
-    char methodStatus[20];
+    char orderMethod[20];
+    char paymentMethod[20];
 
-    char orderName[MAX_ORDER][50];
-    char orderSize[MAX_ORDER][5];
+    CartItem cart[MAX_CART];
 
-    float orderBill[MAX_ORDER];
-
-    int totalOrder;
-
-    float totalBill;
+    int cartCount;
+    float subtotal;
+    float discount;
     float serviceTax;
     float governmentTax;
-    float finalBill;
+    float finalTotal;
+    float payment;
+    float change;
+    char dateTime[50];
+
 
 } Customer;
 
 
-/* Menu */
-void displayMenu(Menu menu[]);
+/* ============================
+        MENU FUNCTIONS
+   ============================ */
+
+void initializeMenu(Menu menu[], int *menuCount);
+void displayMenu(Menu menu[], int menuCount);
+void searchMenu(Menu menu[], int menuCount);
 
 
-/* Order */
-int addOrder(Customer *customer, Menu menu[]);
-int removeOrder(Customer *customer);
+/* ============================
+        ORDER FUNCTIONS
+   ============================ */
+
+void addToCart(Customer *customer, Menu menu[], int menuCount);
+void removeFromCart(Customer *customer);
+void displayCart(Customer customer);
 
 
-/* Billing */
+
+/* ============================
+        PAYMENT FUNCTIONS
+   ============================ */
+
 void calculateBill(Customer *customer);
+void paymentProcess(Customer *customer);
 
 
-/* Receipt */
-void displayReceipt(Customer customer);
-void displayTransaction(Customer customers[], int totalCustomer);
-void saveTransaction(Customer customers[], int totalCustomer);
+/* ============================
+        RECEIPT FUNCTIONS
+   ============================ */
 
+void generateReceipt(Customer customer);
+void printReceipt(Customer customer);
+
+
+/* ============================
+        ADMIN FUNCTIONS
+   ============================ */
+
+void adminPanel(Menu menu[], int *menuCount);
+void addMenuItem(Menu menu[], int *menuCount);
+void updateMenuPrice(Menu menu[], int menuCount);
+void deleteMenuItem(Menu menu[], int *menuCount);
+void salesReport(Menu menu[], int menuCount);
+
+
+/* ============================
+        FILE FUNCTIONS
+   ============================ */
+
+void saveTransaction(Customer customer);
+
+void viewTransaction();
+
+
+/* ============================
+        UTILITY FUNCTIONS
+   ============================ */
+
+void getCurrentDateTime(char buffer[]);
+
+void clearInputBuffer();
 
 #endif
