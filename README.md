@@ -21,7 +21,7 @@ This project demonstrates the application of **structured programming concepts i
 
 ---
 
-## 🛠️ Programming Concepts Applied
+## Programming Concepts Applied
 
 ### Functions
 Functions are used to modularize the program into smaller, reusable components, making the code easier to understand, maintain, and debug.
