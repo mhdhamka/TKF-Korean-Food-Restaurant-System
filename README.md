@@ -1,3 +1,10 @@
+![Language](https://img.shields.io/badge/Language-C-blue)
+![Compiler](https://img.shields.io/badge/Compiler-GCC-orange)
+![Environment](https://img.shields.io/badge/Environment-MSYS2%20UCRT64-purple)
+![Platform](https://img.shields.io/badge/Platform-Console-success)
+![Programming](https://img.shields.io/badge/Programming-Structured%20Programming-green)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+
 # TKF Restaurant Payment System
 
 A console-based **restaurant ordering and payment system developed in C** to simulate the ordering and payment process of **The Korean Food (TKF) Restaurant**.
@@ -230,10 +237,3 @@ The original version was created as part of an academic project, while this enha
 - File-based data management
 
 ---
-
-![Language](https://img.shields.io/badge/Language-C-blue)
-![Compiler](https://img.shields.io/badge/Compiler-GCC-orange)
-![Environment](https://img.shields.io/badge/Environment-MSYS2%20UCRT64-purple)
-![Platform](https://img.shields.io/badge/Platform-Console-success)
-![Programming](https://img.shields.io/badge/Programming-Structured%20Programming-green)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
